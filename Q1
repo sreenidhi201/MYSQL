@@ -24,3 +24,4 @@ insert into mk2 (Roll_no,sub1,sub2,sub3)
 values(1,78,30,45);
  insert into mk2 values(2,45,65,50);
   insert into mk2 values(3,60,87,33);
+alter  table mk2 add grade varchar(5);
