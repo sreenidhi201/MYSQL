@@ -1,0 +1,21 @@
+create table st1(Roll_no int,
+S_name varchar(10),
+S_Address varchar(20)
+);
+create table mt1(Rollno int,
+Sub1 varchar(10),
+);
+alter table st1 add primary key(Roll_no );
+insert into st1 (Roll_no,S_name,S_Address)
+values(1,'Rahul','pattom');
+ insert into st1 values(2,'Sachin','Ambalam Mukku');
+  insert into st1 values(3,'Sourav', 'Nalanchira');
+alter  table st1 add phone_no int;
+ alter table st1 add constraint c check(length(phone_no)=10);
+update  st1 
+set phone_no=1122334455 where roll_no=1;
+
+
+create table mk1(Roll_no int,
+sub1 varchar(10),
+foreign key (Roll_no) references st1(Roll_no));
