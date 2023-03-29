@@ -19,3 +19,8 @@ set phone_no=1122334455 where roll_no=1;
 create table mk1(Roll_no int,
 sub1 varchar(10),
 foreign key (Roll_no) references st1(Roll_no));
+
+insert into mk2 (Roll_no,sub1,sub2,sub3)
+values(1,78,30,45);
+ insert into mk2 values(2,45,65,50);
+  insert into mk2 values(3,60,87,33);
