@@ -1,0 +1,22 @@
+                                                 Q3
+1.
+a->insert into dep (depid,name)
+      values(1,'MCA');
+     insert into dep values(2,'MBA');
+     insert into dep values(3,'BTECH');
+b->insert into stud (stuid,name,class,city,totalmark,depid,percentage)
+      values(1,'ammu',8,'trivandrum',95,1,95);
+     insert into stud values(2,'anu',4,'chennai',78,2,78);
+     insert into stud values(3,'manu',2,'mumbai',81,3,81);
+c->insert into staff(staffid,name,depid,designation,salary,city)
+    values(10,'miya',1,'teacher',50000,'trivandrum');
+     insert into staff values(11,'maya',2,'watchman',20000,'ernakulam');
+      insert into staff values(12,'manya',3,'hod',60000,'ernakulam');
+d->insert into comp(compid,name,city,no_of_employees)
+     values(100,'exas','ernakulam',6);
+    insert into  comp values(101,'axiom','trivandrum',4);
+    insert into comp values(102,'wipro','mumbai',80);
+e->insert into emp(empid ,name,compid,designation,salary,city,)
+      values(20,'rajiv',100,'clerk',25000,'ernakulam');
+  insert into emp values(21,'ravan',101,'gm',50000,'trivandrum');
+insert into emp values(22,'sravan',102,'78000,'malapuram');
