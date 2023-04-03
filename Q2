@@ -1,0 +1,36 @@
+1->create table dep(depid int,name varchar(20));
+alter table dep add primary key(depid );
+
+2->create table stud(stuid int,
+name varchar(20),
+class int,
+city varchar(20),
+totalmark int,
+depid int,
+percentage int);
+alter table stud add foreign key(depid )  references dep(depid);
+
+3->create table staff(staffid int,
+name varchar(20),
+depid int,
+designation varchar(20),
+salary int,
+city varchar(10)); 
+alter table staff  add foreign key (depid) references dep(depid);
+
+4->create table comp(compid int,
+name varchar(20),
+city varchar(20),
+no_of_employees  int)
+primary key(compid));
+alter table comp add primary key(compid);
+
+5->create table emp(empid int,
+name varchar(20),
+compid int,
+designation varchar(20),
+salary int,
+city varchar(10)); 
+alter table emp  add foreign key (compid) references comp(compid);
+
+
