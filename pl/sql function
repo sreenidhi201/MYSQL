@@ -1,0 +1,104 @@
+create table stud1(stutid int,
+name varchar(20),
+class int,
+city varchar(20),
+totalmark int);
+alter table stud1 add primary key(stutid ) ;
+
+insert into stud1 (stutid,name,class,city,totalmark)
+      values(1,'ammu',8,'trivandrum',95);
+insert into stud1 values(2,'anu',4,'chennai',78);
+insert into stud1 values(3,'manu',2,'mumbai',81);
+
+create or replace function stud_id(s_id int)
+return number is  cid number ;
+cursor i is select * from stud1 where stutid=s_id;
+id int;
+name varchar(20);
+class int;
+city varchar(20);
+totalmark int;
+begin 
+open i;
+dbms_output.put_line('studid'||' '||'name'||' '||'class'||' '||'city'||'totalmark');
+loop
+fetch i into id,name,class,city,totalmark;
+exit when i %notfound;
+dbms_output.put_line(s_id||' '||name||' '||class||'   '||city||'  '||totalmark);
+end loop;
+return cid; 
+close i;
+end;
+/
+select stud_id(1) from dual;
+
+create or replace function stud_id(s_id int)
+return number is  cid number ;
+cursor i is select * from stud1 where stutid=s_id;
+id int;
+name varchar(20);
+class int;
+city varchar(20);
+totalmark int;
+begin 
+open i;
+dbms_output.put_line('studid'||' '||'name'||' '||'class'||' '||'city'||'totalmark');
+loop
+fetch i into id,name,class,city,totalmark;
+exit when i %notfound;
+dbms_output.put_line(s_id||' '||name||' '||class||'   '||city||'  '||totalmark);
+end loop;
+return cid; 
+close i;
+end;
+/
+create table dt9( depid int,name varchar(10),
+constraint dp9 primary key(depid)); 
+
+insert into  dt9 values (1,'mca');
+insert into  dt9 values(2,'cs');
+insert into  dt9 values(3,'cs');
+
+create table dt9( depid int,name varchar(10),
+constraint dp9 primary key(depid)); 
+
+insert into  dt9 values (1,'mca');
+insert into  dt9 values(2,'cs');
+insert into  dt9 values(3,'cs');
+
+create table stf1 (stfid int,name varchar(10),depid int,degnt varchar(10), salary int,city varchar(10),
+constraint s7t primary key(stfid),
+constraint f89 foreign key(depid) references dt9(depid));
+
+insert into stf1 values(505,'jiji',1,'prof',15000,'tvm');
+insert into stf1 values(533,'lekha',2,'assi_prof',40000,'kochi');
+insert into stf1 values(504,'asha',1,'asso_prof',50000,'wynd');
+
+
+
+
+
+create or replace function  find_id(dept_id int)
+   return number is cid number;
+   cursor c is
+    select * from stf1 where depid=dept_id;
+    stfid stf1.stfid%TYPE;
+    name stf1.name%TYPE;
+    depid stf1.depid%TYPE;
+    degnt stf1.degnt%TYPE;
+      salary  stf1. salary %TYPE;
+     city stf1.city%TYPE;
+  begin
+    open c;
+    DBMS_OUTPUT.PUT_LINE('id ' || ' '||'name '|| ' ' || 'dpid '|| ' ' || 'degnt'|| ' '|| 'salary '|| ' '|| 'city' );
+    loop
+      fetch c into stfid, name, depid,degnt,salary,city;
+      exit when  c %notfound;
+      DBMS_OUTPUT.PUT_LINE(stfid || ' ' || name || ' ' || depid || ' ' || degnt||' '||salary||' '||city);
+    end loop;
+  return cid;
+    close c;
+  end;
+  / 
+
+
