@@ -1,0 +1,19 @@
+create or replace trigger tig4
+before insert on st1
+referencing  old as o  new as n 
+for each row
+declare
+   m number(10);
+   c number(10);
+begin 
+   select count(roll_no)into c from st1;
+  select max(roll_no) into m from st1;
+if(c!=0)
+then
+   :n.roll_no:=m+1;
+else
+   :n.roll_no:=1 ;
+end if;
+end;
+/
+insert into st1(s_name,s_address,phone_no) values('arun','trivandrum',3344556677);
