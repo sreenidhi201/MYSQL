@@ -46,6 +46,7 @@ BEGIN
   CLOSE c;
 END;
 /
+------------------------------------------------------------------------------------------
 c) Prime number or not
 declare
 x number:='&input_number';
@@ -69,6 +70,7 @@ dbms_output.put_line(x);
 end if;
 end loop;
 end;
+---------------------------------------------------------------------------------------------
 d) To find sum of n numbers
 declare
 x number:='&input_number';
