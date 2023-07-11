@@ -1,0 +1,48 @@
+a) To find the room rent paid by each guest
+
+
+DECLARE
+  r NUMBER(10);
+  CURSOR c IS
+    SELECT guest1.*, hotel1.rate
+    FROM guest1, hotel1
+    WHERE guest1.hid = hotel1.hotelid;
+  id guest1.gid%TYPE;
+  name guest1.gname%TYPE;
+  rooms guest1.no_of_rooms%TYPE;
+  hid guest1.hid%TYPE;
+  rate hotel1.rate%TYPE;
+BEGIN
+  OPEN c;
+  DBMS_OUTPUT.PUT_LINE('id ' || 'name ' || 'hid ' || 'rate');
+  LOOP
+    FETCH c INTO id, name, rooms, hid, rate;
+    EXIT WHEN c%NOTFOUND;
+    r := 0;
+    r := rate * rooms;
+    DBMS_OUTPUT.PUT_LINE(id || ' ' || name || ' ' || hid || ' ' || rate);
+  END LOOP;
+  CLOSE c;
+END;
+/
+---------------------------------------------------------
+b)Display all hotel details having rate/day > 500
+
+DECLARE
+  CURSOR c IS
+    SELECT *FROM hotel1 WHERE rate > 500;
+  hid hotel1.hotelid%TYPE;
+  name hotel1.name%TYPE;
+  tr hotel1.no_of_rooms%TYPE;
+  rate hotel1.rate%TYPE;
+BEGIN
+  OPEN c;
+  DBMS_OUTPUT.PUT_LINE('hid ' || 'name ' || 'rooms ' || 'rate');
+  LOOP
+    FETCH c INTO hid, name, tr, rate;
+    EXIT WHEN c%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(hid || ' ' || name || ' ' || tr || ' ' || rate);
+  END LOOP;
+  CLOSE c;
+END;
+/
