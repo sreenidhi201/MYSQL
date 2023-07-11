@@ -46,3 +46,38 @@ BEGIN
   CLOSE c;
 END;
 /
+c) Prime number or not
+declare
+x number:='&input_number';
+p number(10);
+r number(10);
+begin
+p:=0;
+for i in 2..x
+loop
+for j in 1..x
+loop
+r:=mod(i,j);
+if(r=0)
+then
+p:=p+1;
+end if;
+end loop;
+if(p=2) 
+then
+dbms_output.put_line(x);
+end if;
+end loop;
+end;
+d) To find sum of n numbers
+declare
+x number:='&input_number';
+s number:=0;
+begin
+for i in 1.. x
+loop
+s:=s+i;
+end loop;
+dbms_output.put_line('sum is'  ||s);
+end;
+/
