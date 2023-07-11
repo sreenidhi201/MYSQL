@@ -1,0 +1,20 @@
+create or replace procedure desgn(des varchar)
+is cursor c4 is select * from sf2 where degnt=des;
+ stfid sf2.stfid%TYPE;
+name sf2.name%TYPE;
+depid sf2.depid%TYPE;
+degnt sf2.degnt%TYPE;
+  salary  sf2. salary %TYPE;
+ city sf2.city%TYPE;
+begin
+open c4;
+dbms_output.put_line('id ' || ' '||'name '|| ' ' || 'dpid '|| ' ' || 'degnt'|| ' '|| 'salary ' );
+loop
+fetch c4 into stfid, name, depid,degnt,salary,city;
+exit when c4 %notfound;
+dbms_output.put_line(stfid || ' ' || name || ' ' || depid || ' ' || degnt||' '||salary);
+end loop;
+close c4;
+end;
+/
+
