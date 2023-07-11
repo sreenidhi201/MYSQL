@@ -1,0 +1,2 @@
+  create or replace view empsalary1 as select salary+salary*10.5/100 as  salary , designation 
+from emp where designation='gm';
